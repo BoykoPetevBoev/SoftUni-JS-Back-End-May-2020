@@ -1,4 +1,29 @@
-![JS-Back-End-May-2020](https://github.com/BoykoPetevBoev/JS-Back-End-May-2020/blob/master/JSBack-End.jpg)
+# Terminal Cheat Sheet
+
+| Commands | Notes |
+| -------- | ----- |
+| `mkdir`  | create new directory |
+| `rmdir *FolderName*`  | remove directory |
+| `touch *FileName*` | create new file |
+| `open ` | open file |
+| `rmd` | delete file |
+
+## Working with Git
+
+| Commands | Notes |
+| -------- | ----- |
+| `git init` | initializes the repository |
+| `git chechout -b <BranchName>` | create new local branch |
+| `git branch -d <Branchname>`   | deletes local branch |
+| `git status` | show those *unknown* files |
+| `git add .` |  add those *unknown* files |
+| `git commit -m "message"` |  commit all changes |
+| `git remote add origin <URL>` | add repository *URL* |
+| `git push origin master` | send changes to the master branch of your remote repository |
+| `git pull` | fetch and merge changes on the remote server to your working directory |
+
+
+![JS-Back-End-May-2020](https://github.com/BoykoPetevBoev/JS-Back-End-May-2020/blob/master/README/JSBack-End.jpg)
 
 ## За курса
 
