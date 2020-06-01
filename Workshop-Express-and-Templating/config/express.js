@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 module.exports = (app) => {
-
+    app.use(express.json());
+    app.use(express.urlencoded());
     app.engine('.hbs', handlebars({
         extname: '.hbs'
     }));
