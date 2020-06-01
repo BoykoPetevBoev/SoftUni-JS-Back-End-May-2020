@@ -1,5 +1,4 @@
-const { getCubes } = require('../controllers/get-cubes');
-const { getCubeFromDb } = require('../controllers/database');
+const { getCube, getCubes } = require('../controllers/database');
 const Cube = require('../models/cube');
 
 module.exports = (app) => {
@@ -22,7 +21,7 @@ module.exports = (app) => {
     })
     app.get('/details/:id', (req, res) => {
         const id = req.params.id;
-        const cube = getCubeFromDb(id);
+        const cube = getCube(id);
         res.render('details', {
             ...cube
         })

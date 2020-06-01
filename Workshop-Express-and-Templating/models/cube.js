@@ -1,8 +1,8 @@
 const { v4 } = require('uuid');
 const {
-    getCubeFromDb,
-    getCubesFromDb,
-    saveCubeInDb
+    getCube,
+    getCubes,
+    saveCube
 } = require('../controllers/database');
 
 class Cube {
@@ -21,9 +21,9 @@ class Cube {
             imageUrl: this.imageUrl,
             difficulty: this.difficulty
         }
-        const cubes = getCubesFromDb();
+        const cubes = getCubes();
         cubes.push(newCube);
-        saveCubeInDb(cubes);
+        saveCube(cubes);
     }
 }
 
