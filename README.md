@@ -49,6 +49,7 @@
 | Commands | Notes |
 | -------- | ----- |
 | `git init` | initializes the repository |
+| `git chechout master` | use master branch |
 | `git chechout -b <BranchName>` | create new local branch |
 | `git branch -d <Branchname>`   | deletes local branch |
 | `git status` | show those *unknown* files |
