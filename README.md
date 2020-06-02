@@ -17,16 +17,43 @@
 
 ## Теми
 
-- Introduction to Node.js
-- Node.js Streams and Utilities
-- ExpressJS and Templating
-- Relational and Non-Relational
-- MongoDB and Mongoose
-- Cookies and Sessions 
-- Authentication Concepts
-- Validation  
-- Error Handling     
-- 
+* Introduction to Node.js
+    * Event Loop
+    * Modules
+    * Request and Response Wrapper
+    * Node.js Web Server
+    * Streams
+    * Pub/Sub Pattern
+    * Events
+    * FS Module
+    * Debugging
+* Express
+    * Introduction
+    * Router
+    * Middleware
+* Static Files
+    * View Engines
+    * Templating Concepts
+    * Handlebars
+* NoSQL and MongoDB
+    * Relational and Non-Relational
+    * Databases
+    * MongoDB and Mongoose Overview
+    * Mongoose Models
+    * CRUD with Mongoose
+    * Mongoose Querying
+* Sessions and Authentication
+    * Cookies and Sessions
+    * Authentication Concepts
+    * JSON Web Token
+    * Authentication Strategies
+* Validation  
+    * Why and how validate data
+    * Validating and sanitization data with express-validator
+    * Mongoose validation
+* Error Handling     
+    * Different types of errors
+ 
 
 <!-- ## Сертификат
 
