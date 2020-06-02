@@ -17,23 +17,23 @@
 
 ## Теми
 
-- 
--  
--   
--    
--  
--  
-- 
--   
--     
+- Introduction to Node.js
+- Node.js Streams and Utilities
+- ExpressJS and Templating
+- Relational and Non-Relational
+- MongoDB and Mongoose
+- Cookies and Sessions 
+- Authentication Concepts
+- Validation  
+- Error Handling     
 - 
 
-## Сертификат
+<!-- ## Сертификат
 
-![Certificate]()
+![Certificate]() -->
 
 ---
-# Terminal Cheat Sheet
+## Terminal Cheat Sheet
 
 | Commands | Notes |
 | -------- | ----- |
@@ -59,9 +59,8 @@
 | `git push origin master` | send changes to the master branch of your remote repository |
 | `git pull` | fetch and merge changes on the remote server to your working directory |
 
----
+## Links
 
-## Полезни линкове
 | Website  | URL |
 | ------------- | ------------- |
 | SoftUni | <a href="https://softuni.bg">https://softuni.bg</a>  |
