@@ -25,9 +25,39 @@ module.exports = (app) => {
         res.render('details', {
             ...cube
         })
-        
+    })
+    app.get('/search', (req, res) => {
+        const { search, from, to } = req.query;
+        let newData = getCubes()
+        if(search){
+            newData = newData.filter(item => {
+                return item['name']
+                .toLowerCase()
+                .includes(search.toLowerCase())
+            })
+        }
+        if(from){
+            newData = newData.filter(item => {
+                return Number(item.difficulty) >= Number(from);
+            })
+        }
+        if(to){
+            newData = newData.filter(item => {
+                return Number(item.difficulty) <= Number(to);
+            })
+        }
+        res.render('index', {
+            cubes: newData
+        })
     })
     app.get('*', (req, res) => {
         res.render('404')
     })
 };
+
+// function filterArray(arr, filter){
+//     if(!arr || !filter){
+//         return arr;
+//     }
+//     const newArray = arr.filter(item => )
+// }
