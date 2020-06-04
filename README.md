@@ -79,13 +79,19 @@
 | `git chechout master` | use master branch |
 | `git chechout -b <BranchName>` | create new local branch |
 | `git branch -d <Branchname>`   | deletes local branch |
+| `git push origin master` | send changes to the master branch of your remote repository |
+| `git pull` | fetch and merge changes on the remote server to your working directory |
 | `git status` | show those *unknown* files |
 | `git add .` |  add those *unknown* files |
 | `git commit -m "message"` |  commit all changes |
-| `git remote add origin <URL>` | add repository *URL* |
-| `git push origin master` | send changes to the master branch of your remote repository |
-| `git pull` | fetch and merge changes on the remote server to your working directory |
+| `git push` | push changes in GitHub |
 
+## Commit in Master
+    1. `git status`
+    2. `git add .`
+    3. `git commit -m "message"` 
+    4. `git push`
+    
 ## Links
 
 | Website  | URL |
