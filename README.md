@@ -87,10 +87,10 @@
 | `git push` | push changes in GitHub |
 
 ### Git commit in Master
-1 `git status`
-2 `git add .`
-3 `git commit -m "message"` 
-4 `git push`
+1. `git status`
+2. `git add .`
+3. `git commit -m "message"` 
+4. `git push`
 
 
 
