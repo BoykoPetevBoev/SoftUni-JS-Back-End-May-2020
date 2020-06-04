@@ -86,12 +86,14 @@
 | `git commit -m "message"` |  commit all changes |
 | `git push` | push changes in GitHub |
 
-## Commit in Master
-    1. `git status`
-    2. `git add .`
-    3. `git commit -m "message"` 
-    4. `git push`
-    
+### Git commit in Master
+1 `git status`
+2 `git add .`
+3 `git commit -m "message"` 
+4 `git push`
+
+
+
 ## Links
 
 | Website  | URL |
