@@ -98,6 +98,8 @@
 
 | Website  | URL |
 | ------------- | ------------- |
+| Express | <a href="https://expressjs.com/"></a> |
+| npm | <a href="https://www.npmjs.com/"></a> |
 | SoftUni | <a href="https://softuni.bg">https://softuni.bg</a>  |
 |  Handlebars | <a href="https://handlebarsjs.com">https://handlebarsjs.co</a>  |
 | The Practical Test Pyramid | <a href="https://martinfowler.com/articles/practical-test-pyramid.html#ContractTests">https://martinfowler.com/articles/practical-test-pyramid.html#ContractTests</a> |
