@@ -1,4 +1,5 @@
 const { getCube, getCubes } = require('../controllers/database');
+const { searchHandler } = require('../controllers/filter');
 const Cube = require('../models/cube');
 
 module.exports = (app) => {
@@ -28,26 +29,9 @@ module.exports = (app) => {
     })
     app.get('/search', (req, res) => {
         const { search, from, to } = req.query;
-        let newData = getCubes()
-        if(search){
-            newData = newData.filter(item => {
-                return item['name']
-                .toLowerCase()
-                .includes(search.toLowerCase())
-            })
-        }
-        if(from){
-            newData = newData.filter(item => {
-                return Number(item.difficulty) >= Number(from);
-            })
-        }
-        if(to){
-            newData = newData.filter(item => {
-                return Number(item.difficulty) <= Number(to);
-            })
-        }
+        const filteredData = searchHandler(search, from, to);
         res.render('index', {
-            cubes: newData
+            cubes: filteredData
         })
     })
     app.get('*', (req, res) => {
