@@ -38,10 +38,3 @@ module.exports = (app) => {
         res.render('404')
     })
 };
-
-// function filterArray(arr, filter){
-//     if(!arr || !filter){
-//         return arr;
-//     }
-//     const newArray = arr.filter(item => )
-// }

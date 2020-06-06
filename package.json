@@ -13,6 +13,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^4.0.4",
     "formidable": "^1.2.2",
+    "mongoose": "^5.9.18",
     "nodemon": "^2.0.4",
     "uuid": "^8.1.0"
   }
