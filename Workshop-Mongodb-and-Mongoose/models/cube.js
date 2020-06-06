@@ -1,31 +1,30 @@
-const { v4 } = require('uuid');
-const {
-    getCube,
-    getCubes,
-    saveCube
-} = require('../controllers/database');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-class Cube {
-    constructor(name, description, imageUrl, difficulty) {
-        this.id = v4();
-        this.name = name || 'No Name';
-        this.description = description || 'There is no description about this cube.';
-        this.imageUrl = imageUrl || 'https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-28.png';
-        this.difficulty = difficulty || 0;
-    }
-    save() {
-        const newCube = {
-            id: this.id,
-            name: this.name,
-            description: this.description,
-            imageUrl: this.imageUrl,
-            difficulty: this.difficulty
-        }
-        const cubes = getCubes();
-        cubes.push(newCube);
-        saveCube(cubes);
-    }
-}
+const CubeSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true,
+        maxlength: 100
+    },
+    imageUrl: {
+        type: String,
+        required: true
+    },
+    difficulty: {
+        type: Number,
+        required: true,
+        min: 1,
+        max: 6
+    },
+    accessories: [{
+        type: 'ObjectId',
+        ref: 'Accessory'
+    }]
+});
 
-module.exports = Cube;
-
+module.exports = mongoose.model('Cube', CubeSchema );
