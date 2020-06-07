@@ -26,5 +26,9 @@ const CubeSchema = new Schema({
         ref: 'Accessory'
     }]
 });
+CubeSchema.path('imageUrl').validate(function (url) {
+    return url.startsWith('http://') || url.startsWith('https://');
+}, 'Cube Image must start with "http://" or "https://"!');
 
-module.exports = mongoose.model('Cube', CubeSchema );
+
+module.exports = mongoose.model('Cube', CubeSchema);
