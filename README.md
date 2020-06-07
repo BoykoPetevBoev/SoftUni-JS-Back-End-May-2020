@@ -92,7 +92,13 @@
 3. `git commit -m "message"` 
 4. `git push`
 
-
+### Git commit in branch
+1. `git checkout master`
+2. `git pull`
+3. `git checkout -b "branch name"`
+4. `...`
+5. `git status`
+6.
 
 ## Linksl
 

@@ -1,1 +1,79 @@
-[{"id":"3bc95422-cc60-4a6e-af4c-945046da15b7","name":"Gan356 Air SM","description":"There is no description about this cube.","imageUrl":"https://ae01.alicdn.com/kf/HTB1CSddXRxRMKJjy0Fdq6yifFXa6/Gan-356-Air-SM-3x3-Black-Magic-cube-GAN-Air-SM-Magnetic-3x3x3-Speed-cube-gans.jpg","difficulty":3},{"id":"3841d492-099d-4496-a9aa-2aafc8023e1b","name":"Eco-Dark","description":"There is no description about this cube.","imageUrl":"https://thingsidesire.com/wp-content/uploads/2018/06/Eco-Dark-Rubik%E2%80%99s-Cube2.jpg","difficulty":6},{"id":"f39f1dfe-9feb-4e2c-a285-906d8462f322","name":"Eco-Dark","description":"There is no description about this cube.","imageUrl":"https://thingsidesire.com/wp-content/uploads/2018/06/Eco-Dark-Rubik%E2%80%99s-Cube2.jpg","difficulty":6},{"id":"b2427c90-990a-4f8f-81ab-3da7f1d3d743","name":"Eco-Dark","description":"There is no description about this cube.","imageUrl":"https://thingsidesire.com/wp-content/uploads/2018/06/Eco-Dark-Rubik%E2%80%99s-Cube2.jpg","difficulty":6},{"id":"f3276598-d4d8-4879-a6c6-6ad68e984103","name":"Pyraminx","description":"There is no description about this cube.","imageUrl":"https://images-na.ssl-images-amazon.com/images/I/61izOzq%2BBAL._SY355_.jpg","difficulty":1},{"id":"cb75c44d-69aa-4f02-85d2-a249c2298093","name":"Megaminx","description":"There is no description about this cube.","imageUrl":"https://images-na.ssl-images-amazon.com/images/I/61HpQqVQ37L._SY355_.jpg","difficulty":3},{"id":"d34736ce-0e02-4fc1-a39d-4b27d829b604","name":"HR Magic Rubic Gold Mirror Cube ","description":"3x3 Puzzle","imageUrl":"https://rukminim1.flixcart.com/image/352/352/puzzle/h/t/t/1-magic-rubic-gold-mirror-cube-3x3-puzzle-hr-original-imaerd7ayh26dpde.jpeg?q=70","difficulty":"4"},{"id":"fbf44d28-74d3-41f4-a1a3-534c60c7caa9","name":"Difficult IQ cube","description":"Most difficult IQ cube in the world","imageUrl":"https://qph.fs.quoracdn.net/main-qimg-2892e1f6df8cde3b6773a7f19db6a7a4.webp","difficulty":"6"},{"id":"c8532e7b-a9c0-47da-808c-4314e1c70b27","name":"Rubik 2x2","description":"Super hardcore Rubiks Cube","imageUrl":"https://www.rubiks.com/media/catalog/product/cache/9c57e2fe71f8a58f6afba681a0a15dd4/r/u/rubik-2x2-cube-solved.jpg","difficulty":"1"},{"id":"7e1579fc-5faf-4846-a344-f9fed6055dd8","name":"V-Cubes - V-Cube 8.","description":"The V Cube 8 is the first Achtlagige model in the series and the largest rotation puzzle in the world\r\nThe Cube's solution requires a lot of attention, concentration and distinctive Strategisches thinking\r\nThis cube is just a little for intermediates and professionals","imageUrl":"https://images-na.ssl-images-amazon.com/images/I/61YLrBBP-qL._AC_.jpg","difficulty":"5"},{"id":"435df403-ce35-45c0-8fde-625856941c14","name":"Pot Shaped Cube Puzzle","description":"The Most Hardest Rubik’s Cubes To Solve","imageUrl":"https://i.pinimg.com/originals/46/5f/db/465fdb3ba0e4e49866d4da983216fa3a.jpg","difficulty":"5"}]
+[
+    {
+        "id": "3bc95422-cc60-4a6e-af4c-945046da15b7",
+        "name": "Gan356 Air SM",
+        "description": "There is no description about this cube.",
+        "imageUrl": "https://ae01.alicdn.com/kf/HTB1CSddXRxRMKJjy0Fdq6yifFXa6/Gan-356-Air-SM-3x3-Black-Magic-cube-GAN-Air-SM-Magnetic-3x3x3-Speed-cube-gans.jpg",
+        "difficulty": 3
+    },
+    {
+        "id": "3841d492-099d-4496-a9aa-2aafc8023e1b",
+        "name": "Eco-Dark",
+        "description": "There is no description about this cube.",
+        "imageUrl": "https://thingsidesire.com/wp-content/uploads/2018/06/Eco-Dark-Rubik%E2%80%99s-Cube2.jpg",
+        "difficulty": 6
+    },
+    {
+        "id": "f39f1dfe-9feb-4e2c-a285-906d8462f322",
+        "name": "Eco-Dark",
+        "description": "There is no description about this cube.",
+        "imageUrl": "https://thingsidesire.com/wp-content/uploads/2018/06/Eco-Dark-Rubik%E2%80%99s-Cube2.jpg",
+        "difficulty": 6
+    },
+    {
+        "id": "b2427c90-990a-4f8f-81ab-3da7f1d3d743",
+        "name": "Eco-Dark",
+        "description": "There is no description about this cube.",
+        "imageUrl": "https://thingsidesire.com/wp-content/uploads/2018/06/Eco-Dark-Rubik%E2%80%99s-Cube2.jpg",
+        "difficulty": 6
+    },
+    {
+        "id": "f3276598-d4d8-4879-a6c6-6ad68e984103",
+        "name": "Pyraminx",
+        "description": "There is no description about this cube.",
+        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61izOzq%2BBAL._SY355_.jpg",
+        "difficulty": 1
+    },
+    {
+        "id": "cb75c44d-69aa-4f02-85d2-a249c2298093",
+        "name": "Megaminx",
+        "description": "There is no description about this cube.",
+        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61HpQqVQ37L._SY355_.jpg",
+        "difficulty": 3
+    },
+    {
+        "id": "d34736ce-0e02-4fc1-a39d-4b27d829b604",
+        "name": "HR Magic Rubic Gold Mirror Cube ",
+        "description": "3x3 Puzzle",
+        "imageUrl": "https://rukminim1.flixcart.com/image/352/352/puzzle/h/t/t/1-magic-rubic-gold-mirror-cube-3x3-puzzle-hr-original-imaerd7ayh26dpde.jpeg?q=70",
+        "difficulty": "4"
+    },
+    {
+        "id": "fbf44d28-74d3-41f4-a1a3-534c60c7caa9",
+        "name": "Difficult IQ cube",
+        "description": "Most difficult IQ cube in the world",
+        "imageUrl": "https://qph.fs.quoracdn.net/main-qimg-2892e1f6df8cde3b6773a7f19db6a7a4.webp",
+        "difficulty": "6"
+    },
+    {
+        "id": "c8532e7b-a9c0-47da-808c-4314e1c70b27",
+        "name": "Rubik 2x2",
+        "description": "Super hardcore Rubiks Cube",
+        "imageUrl": "https://www.rubiks.com/media/catalog/product/cache/9c57e2fe71f8a58f6afba681a0a15dd4/r/u/rubik-2x2-cube-solved.jpg",
+        "difficulty": "1"
+    },
+    {
+        "id": "7e1579fc-5faf-4846-a344-f9fed6055dd8",
+        "name": "V-Cubes - V-Cube 8.",
+        "description": "The V Cube 8 is the first Achtlagige model in the series and the largest rotation puzzle in the world\r\nThe Cube's solution requires a lot of attention, concentration and distinctive Strategisches thinking\r\nThis cube is just a little for intermediates and professionals",
+        "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61YLrBBP-qL._AC_.jpg",
+        "difficulty": "5"
+    },
+    {
+        "id": "435df403-ce35-45c0-8fde-625856941c14",
+        "name": "Pot Shaped Cube Puzzle",
+        "description": "The Most Hardest Rubik’s Cubes To Solve",
+        "imageUrl": "https://i.pinimg.com/originals/46/5f/db/465fdb3ba0e4e49866d4da983216fa3a.jpg",
+        "difficulty": "5"
+    }
+]
