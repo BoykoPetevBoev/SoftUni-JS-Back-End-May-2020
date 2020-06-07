@@ -95,10 +95,12 @@
 ### Git commit in branch
 1. `git checkout master`
 2. `git pull`
-3. `git checkout -b "branch name"`
+3. `git checkout -b "branch-name"`
 4. `...`
 5. `git status`
-6.
+6. `git add .`
+7. `git commit -m "message"` 
+8. `git push --set-upstream origin branch-name`
 
 ## Linksl
 

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node Lab-Express/index.js"
+    "start": "node Workshop-Mongodb-and-Mongoose/index.js"
   },
   "author": "Boyko Boev",
   "license": "ISC",
