@@ -102,7 +102,7 @@
 7. `git commit -m "message"` 
 8. `git push --set-upstream origin branch-name`
 
-## Linksl
+## Links
 
 |   Website  | URL |
 | ---------- | --- |

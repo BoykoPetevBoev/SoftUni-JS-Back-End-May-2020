@@ -70,12 +70,12 @@ module.exports = (app) => {
         await updateCubeAccessories(cubeId, accessoryId);
         res.redirect(`/details/${cubeId}`);
     })
-    app.get('/search', (req, res) => {
-        // const { search, from, to } = req.query;
-        // const filteredData = searchHandler(search, from, to);
-        // res.render('index', {
-        //     cubes: filteredData
-        // })
+    app.get('/search', async (req, res) => {
+        const { search, from, to } = req.query;
+        const filteredData = await searchHandler(search, from, to);
+        res.render('index', {
+            cubes: filteredData
+        })
     })
     app.get('*', (req, res) => {
         res.render('404')
