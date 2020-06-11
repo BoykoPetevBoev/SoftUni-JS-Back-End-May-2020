@@ -1,13 +1,9 @@
-const http = require('http');
+const express = require('express');
+
+const app = express();
 const port = 3000;
-const handlers = require('./handlers')
 
-console.log(`Server started on port: ${port}`);
+require('./config/express')(app);
+require('./config/routes')(app);
 
-http.createServer((req, res) => {
-    for(let handler of handlers) {
-        if(!handler(req, res)){
-            break;
-        }
-    }
-}).listen(port);
+app.listen(port, console.log(`Server started on port: ${port}`));
