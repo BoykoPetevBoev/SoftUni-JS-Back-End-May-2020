@@ -84,10 +84,7 @@ module.exports = (app) => {
     app.get('/register', (req, res) => {
         res.render('registerpage');
     })
-    app.post('/register', (req, res) => {
-        const { username, password } = req.body;
-        addUser(username, password);
-    })
+    app.post('/register', addUser);
     app.get('/edit', (req, res) => {
         res.render('editCubePage');
     })
