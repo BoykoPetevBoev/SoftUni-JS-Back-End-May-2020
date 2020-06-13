@@ -3,6 +3,7 @@ const Accessory = require('../models/accessory');
 const { getAllCubes, getCube, updateCubeAccessories, getCubeWithAccesories } = require('../controllers/cubes');
 const { getAllAccessories } = require('../controllers/accessories');
 const { searchHandler } = require('../controllers/filter');
+const { addUser } = require('../controllers/users');
 
 module.exports = (app) => {
     app.get('/', async (req, res) => {
@@ -76,6 +77,22 @@ module.exports = (app) => {
         res.render('index', {
             cubes: filteredData
         })
+    })
+    app.get('/login', (req, res) => {
+        res.render('loginpage');
+    })
+    app.get('/register', (req, res) => {
+        res.render('registerpage');
+    })
+    app.post('/register', (req, res) => {
+        const { username, password } = req.body;
+        addUser(username, password);
+    })
+    app.get('/edit', (req, res) => {
+        res.render('editCubePage');
+    })
+    app.get('/delete', (req, res) => {
+        res.render('deleteCubePage');
     })
     app.get('*', (req, res) => {
         res.render('404')
