@@ -1,9 +1,11 @@
 const Cube = require('../models/cube');
 const Accessory = require('../models/accessory');
+const jwt = require('jsonwebtoken');
 const { getAllCubes, getCube, updateCubeAccessories, getCubeWithAccesories } = require('../controllers/cubes');
 const { getAllAccessories } = require('../controllers/accessories');
 const { searchHandler } = require('../controllers/filter');
 const { addUser, verifyUser } = require('../controllers/users');
+const { privateKey } = require('../private');
 
 module.exports = (app) => {
     app.get('/', async (req, res) => {
@@ -19,12 +21,16 @@ module.exports = (app) => {
     })
     app.post('/create', (req, res) => {
         const { name, description, imageUrl, difficulty } = req.body;
+        const token = req.cookies.token;
+        const decodet = jwt.verify(token, privateKey);
         const cube = new Cube({
             name,
             description,
             imageUrl,
-            difficulty
+            difficulty,
+            creatorId: decodet.userID
         });
+
         cube.save((err) => {
             if (err) return console.error(err);
             console.log('Cube saved successfuly!');
