@@ -2,6 +2,7 @@ const User = require('../models/user');
 const privateData = require('../private');
 const bscrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const privateKey = privateData.privateKey;
 
 
 async function addUser(req, res) {
@@ -13,9 +14,8 @@ async function addUser(req, res) {
     const user = new User({ username, password: hashPassword });
     const userData = await user.save();
 
-    const privateKey = privateData.privateKey;
     const token = jwt.sign({
-        iserID: userData._id,
+        userID: userData._id,
         username: userData.username
     }, privateKey);
     res.cookie('token', token);
@@ -33,11 +33,11 @@ async function verifyUser(req, res) {
         return res.redirect('/login');
     }
     const token = jwt.sign({
-        iserID: userData._id,
-        username: userData.username
+        userID: user._id,
+        username: user.username
     }, privateKey);
     res.cookie('token', token);
-    
+
     res.redirect('/');
 }
 
