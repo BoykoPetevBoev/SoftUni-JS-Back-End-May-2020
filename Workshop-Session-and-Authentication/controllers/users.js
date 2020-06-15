@@ -25,11 +25,11 @@ async function addUser(req, res) {
 async function verifyUser(req, res) {
     const { username, password } = req.body;
     const user = await User.findOne({ username }).lean();
-    if(!user){
+    if (!user) {
         return res.redirect('/login');
     }
     const match = await bscrypt.compare(password, user.password);
-    if(!match){
+    if (!match) {
         return res.redirect('/login');
     }
     const token = jwt.sign({
@@ -40,8 +40,48 @@ async function verifyUser(req, res) {
 
     res.redirect('/');
 }
+function guestAuthorization(req, res, next) {
+    const token = req.cookies.token;
+    if (!token) {
+        return res.redirect('/');
+    }
+    try {
+        const user = jwt.verify(token, privateKey);
+        next();
+    }
+    catch (e) {
+        return res.redirect('/');
+    }
+}
+function userAuthorization(req, res, next) {
+    const token = req.cookies.token;
+    try {
+        const user = jwt.verify(token, privateKey);
+        return res.redirect('/');
+    }
+    catch {
+        next();
+    }
+}
+function getUserStatus(req, res, next) {
+    const token = req.cookies.token;
+    if (!token) {
+        req.isLoggedIn = false;
+    }   
+    try {
+        const user = jwt.verify(token, privateKey);
+        req.isLoggedIn = true;
+    }
+    catch {
+        req.isLoggedIn = false;
+    }
+    next();
+}
 
 module.exports = {
     addUser,
-    verifyUser
+    verifyUser,
+    guestAuthorization,
+    userAuthorization,
+    getUserStatus
 }
