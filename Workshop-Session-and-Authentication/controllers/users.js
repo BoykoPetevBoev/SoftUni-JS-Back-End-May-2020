@@ -4,7 +4,6 @@ const bscrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const privateKey = privateData.privateKey;
 
-
 async function addUser(req, res) {
     const { username, password } = req.body;
 

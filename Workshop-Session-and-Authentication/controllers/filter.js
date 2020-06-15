@@ -1,6 +1,7 @@
 const { getAllCubes } = require('./cubes');
 
-async function searchHandler(search, from, to) { 
+async function searchHandler(req, res) { 
+    const { search, from, to } = req.query;
     let data = await getAllCubes();
     if(search){
         data = data.filter(item => {
@@ -19,6 +20,9 @@ async function searchHandler(search, from, to) {
             return Number(item.difficulty) <= Number(to);
         })
     }
-    return data;
+    return res.render('index', {
+        cubes: data,
+        isLoggedIn: req.isLoggedIn
+    });
 }
 module.exports = { searchHandler };

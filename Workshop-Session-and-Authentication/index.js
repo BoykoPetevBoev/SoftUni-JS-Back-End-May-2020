@@ -17,6 +17,6 @@ mongoose.connect(config.databaseUrl, {
 })
 
 require('./config/express')(app);
-require('./config/routes')(app);
+require('./router/routes')(app);
 
 app.listen(config.port, console.log(`Listening on port ${config.port}!`));
