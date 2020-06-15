@@ -4,20 +4,25 @@ const jwt = require('jsonwebtoken');
 const { getAllCubes, getCube, updateCubeAccessories, getCubeWithAccesories } = require('../controllers/cubes');
 const { getAllAccessories } = require('../controllers/accessories');
 const { searchHandler } = require('../controllers/filter');
-const { addUser, verifyUser } = require('../controllers/users');
+const { addUser, verifyUser, guestAuthorization, userAuthorization, getUserStatus } = require('../controllers/users');
 const { privateKey } = require('../private');
 
 module.exports = (app) => {
-    app.get('/', async (req, res) => {
+    app.get('/', getUserStatus, async (req, res) => {
         res.render('index', {
-            cubes: await getAllCubes()
+            cubes: await getAllCubes(),
+            isLoggedIn: req.isLoggedIn
         });
     });
-    app.get('/about', (req, res) => {
-        res.render('about')
+    app.get('/about', getUserStatus, (req, res) => {
+        res.render('about', {
+            isLoggedIn: req.isLoggedIn
+        })
     })
-    app.get('/create', (req, res) => {
-        res.render('create')
+    app.get('/create', getUserStatus, guestAuthorization, (req, res) => {
+        res.render('create', {
+            isLoggedIn: req.isLoggedIn
+        })
     })
     app.post('/create', (req, res) => {
         const { name, description, imageUrl, difficulty } = req.body;
@@ -37,8 +42,10 @@ module.exports = (app) => {
         });
         res.redirect('/');
     })
-    app.get('/create/accessory', (req, res) => {
-        res.render('createAccessory');
+    app.get('/create/accessory', getUserStatus, guestAuthorization, (req, res) => {
+        res.render('createAccessory', {
+            isLoggedIn: req.isLoggedIn
+        });
     })
     app.post('/create/accessory', (req, res) => {
         const { name, description, imageUrl } = req.body;
@@ -53,14 +60,15 @@ module.exports = (app) => {
         })
         res.redirect('/');
     })
-    app.get('/details/:id', async (req, res) => {
+    app.get('/details/:id', getUserStatus, async (req, res) => {
         const id = req.params.id;
         const cube = await getCubeWithAccesories(id);
         res.render('details', {
-            ...cube
+            ...cube,
+            isLoggedIn: req.isLoggedIn
         });
     })
-    app.get('/attach/accessory/:id', async (req, res) => {
+    app.get('/attach/accessory/:id', getUserStatus, guestAuthorization, async (req, res) => {
         const id = req.params.id;
         const cube = await getCube(id);
         const accessories = await getAllAccessories();
@@ -68,7 +76,8 @@ module.exports = (app) => {
         res.render('attachAccessory', {
             ...cube,
             accessories,
-            allAccesoriesAttached: cube.accessories.length === accessories.length
+            allAccesoriesAttached: cube.accessories.length === accessories.length,
+            isLoggedIn: req.isLoggedIn
         });
     })
     app.post('/attach/accessory/:id', async (req, res) => {
@@ -77,26 +86,38 @@ module.exports = (app) => {
         await updateCubeAccessories(cubeId, accessoryId);
         res.redirect(`/details/${cubeId}`);
     })
-    app.get('/search', async (req, res) => {
+    app.get('/search', getUserStatus, async (req, res) => {
         const { search, from, to } = req.query;
         const filteredData = await searchHandler(search, from, to);
         res.render('index', {
-            cubes: filteredData
+            cubes: filteredData,
+            isLoggedIn: req.isLoggedIn
         })
     })
-    app.get('/login', (req, res) => {
-        res.render('loginpage');
+    app.get('/login', userAuthorization, getUserStatus, (req, res) => {
+        res.render('loginpage', {
+            isLoggedIn: req.isLoggedIn
+        });
     })
     app.post('/login', verifyUser);
-    app.get('/register', (req, res) => {
-        res.render('registerpage');
+    app.get('/register', userAuthorization, getUserStatus, (req, res) => {
+        res.render('registerPage', {
+            isLoggedIn: req.isLoggedIn
+        });
     })
     app.post('/register', addUser);
-    app.get('/edit', (req, res) => {
-        res.render('editCubePage');
+    app.get('/edit', guestAuthorization, (req, res) => {
+        res.render('editCubePage', {
+            isLoggedIn: req.isLoggedIn
+        });
     })
-    app.get('/delete', (req, res) => {
-        res.render('deleteCubePage');
+    app.get('/delete', guestAuthorization, getUserStatus, (req, res) => {
+        res.render('deleteCubePage', {
+            isLoggedIn: req.isLoggedIn
+        });
+    })
+    app.get('/logout', guestAuthorization, getUserStatus, (req, res) => {
+        res.redirect('/'); //TODO...
     })
     app.get('*', (req, res) => {
         res.render('404')
