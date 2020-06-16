@@ -106,9 +106,10 @@
 
 |   Website  | URL |
 | ---------- | --- |
+| Conventional Commits | <a href="https://www.conventionalcommits.org/en/v1.0.0/#summary">https://www.conventionalcommits.org</a> |
 | Express    | <a href="https://expressjs.com/">https://expressjs.com</a> |
 | npm        | <a href="https://www.npmjs.com/">https://www.npmjs.com</a> |
 | SoftUni    | <a href="https://softuni.bg">https://softuni.bg</a>  |
 | Handlebars | <a href="https://handlebarsjs.com">https://handlebarsjs.com</a>  |
-| The Practical Test Pyramid | <a href="https://martinfowler.com/articles/practical-test-pyramid.html#ContractTests">https://martinfowler.com/articles/practical-test-pyramid.html#ContractTests</a> |
+| The Practical Test Pyramid | <a href="https://martinfowler.com/articles/practical-test-pyramid.html#ContractTests">https://martinfowler.com</a> |
 
