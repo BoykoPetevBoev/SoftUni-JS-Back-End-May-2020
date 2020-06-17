@@ -4,11 +4,14 @@ const Schema  =mongoose.Schema;
 const UserSchema = new Schema({
     username: {
         type: String,
-        required: true
+        required: true,
+        unique: true,
+        match: [/^[A-Za-z0-9]+$/gm, 'Username is not valid'],
+        minlength: 5
     },
     password: {
         type: String,
-        required: true
+        required: true,
     }
 });
 

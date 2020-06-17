@@ -25,11 +25,11 @@ async function verifyUser(req, res) {
     const { username, password } = req.body;
     const user = await User.findOne({ username }).lean();
     if (!user) {
-        return res.redirect('/login');
+        return res.redirect('/login?error=true');
     }
     const match = await bscrypt.compare(password, user.password);
     if (!match) {
-        return res.redirect('/login');
+        return res.redirect('/login?error=true');
     }
     const token = jwt.sign({
         userID: user._id,
@@ -66,7 +66,7 @@ function getUserStatus(req, res, next) {
     const token = req.cookies.token;
     if (!token) {
         req.isLoggedIn = false;
-    }   
+    }
     try {
         const user = jwt.verify(token, privateKey);
         req.isLoggedIn = true;
@@ -76,8 +76,33 @@ function getUserStatus(req, res, next) {
     }
     next();
 }
+function loadLoginPage(req, res) {
+    const error = req.query.error
+        ? 'Invalid params'
+        : null;
+    return res.render('loginpage', {
+        isLoggedIn: req.isLoggedIn,
+        error
+    });
+}
+function loadRegisterPage(req, res) {
+    const error = req.query.error
+        ? 'Invalid params'
+        : null;
+    return res.render('registerPage', {
+        isLoggedIn: req.isLoggedIn,
+        error
+    });
+}
+function logoutUser(req, res) {
+    res.clearCookie('token');
+    return res.redirect('/');
+}
 
 module.exports = {
+    loadLoginPage,
+    loadRegisterPage,
+    logoutUser,
     addUser,
     verifyUser,
     guestAuthorization,
