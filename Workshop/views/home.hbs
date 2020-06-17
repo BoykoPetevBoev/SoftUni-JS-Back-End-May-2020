@@ -11,8 +11,8 @@
             <p><span>Breed: </span>{{this.breed}}</p>
             <p><span>Description: </span>{{this.description}}</p>
             <ul class="buttons">
-                <li class="btn edit"><a href="">Change Info</a></li>
-                <li class="btn delete"><a href="">New Home</a></li>
+                <li class="btn edit"><a href="/edit/{{_id}}">Change Info</a></li>
+                <li class="btn delete"><a href="/newHome/{{_id}}">New Home</a></li>
             </ul>
         </li>
         {{/each}}

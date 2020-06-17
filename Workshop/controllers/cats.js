@@ -1,4 +1,5 @@
 const Cat = require('../models/cat');
+const {getBreed} = require('./breeds');
 
 async function getAllCats(req, res, next) {
     req.cats = await Cat.find().lean();
@@ -20,15 +21,34 @@ async function saveCat(req, res) {
     console.log('New cat saved successfuly')
     return res.redirect('/')
 }
-async function loadHomePage(req, res){
+function loadHomePage(req, res) {
     return res.render('home', {
         cats: req.cats
     });
+}
+async function loadEditPage(req, res) {
+    const id = req.params.id
+    const cat = await getCat(id);
+    res.render('editCat', {
+        breeds: req.breeds,
+        ...cat
+    });
+}
+async function loadCatShelterPage(req, res){
+    const id = req.params.id;
+    const cat = await getCat(id);
+    const breed = await getBreed(cat.breed);
+    res.render('catShelter', {
+        ...cat,
+        breed
+    })
 }
 
 module.exports = {
     getAllCats,
     getCat,
     saveCat,
-    loadHomePage
+    loadHomePage,
+    loadEditPage,
+    loadCatShelterPage
 }
