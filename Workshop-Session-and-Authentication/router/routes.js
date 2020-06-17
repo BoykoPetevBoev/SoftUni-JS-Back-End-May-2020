@@ -4,13 +4,11 @@ const {
     verifyUser,
     guestAuthorization,
     userAuthorization,
-    getUserStatus
-} = require('../controllers/users');
-const {
+    getUserStatus,
     loadLoginPage,
     loadRegisterPage,
     logoutUser
-} = require('./user');
+} = require('../controllers/users');
 const {
     loadHomePage,
     loadEditPage,
