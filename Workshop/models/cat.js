@@ -10,10 +10,12 @@ const CatSchema = new Schema({
         type: String
     },
     image: {
-        type: String
+        type: String,
+        required: true
     },
     breed: {
-        type: String
+        type: String,
+        required: true
     }
 });
 
