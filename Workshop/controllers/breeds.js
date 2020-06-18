@@ -6,7 +6,7 @@ async function addBreed(req, res) {
         breed: req.body.breed
     })
     await breed.save();
-    console.log('New breed saved successfuly')
+    console.log('New breed saved successfuly!')
     res.redirect('/');
 }
 async function getAllBreeds(req, res, next) {
