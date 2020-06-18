@@ -8,8 +8,12 @@
         <li>
             <img src="{{this.image}}" alt="">
             <h3>{{this.name}}</h3>
-            <p><span>Breed: </span>{{this.breed}}</p>
+            <p><span>Breed: </span>{{this.breed.breed}}</p>
+            {{#if this.description}}
             <p><span>Description: </span>{{this.description}}</p>
+            {{else}}
+            <p><span>Description: </span>No description</p>
+            {{/if}}
             <ul class="buttons">
                 <li class="btn edit"><a href="/edit/{{_id}}">Change Info</a></li>
                 <li class="btn delete"><a href="/newHome/{{_id}}">New Home</a></li>

@@ -2,7 +2,8 @@ const Cat = require('../models/cat');
 const { getBreed } = require('./breeds');
 
 async function getAllCats(req, res, next) {
-    req.cats = await Cat.find().lean();
+    req.cats = await Cat.find().populate('breed').lean();
+    console.log(req.cats)
     next();
 }
 async function getCat(id) {
