@@ -16,9 +16,10 @@ function mongooseStatus(err){
     }
     console.log('Database is setup and running!');
 }
+mongoose.set('useFindAndModify', false);
 mongoose.connect(url , mongooseOptions, mongooseStatus);
 
 require('./config/express')(app);
 require('./config/routes')(app);
 
-app.listen(port, console.log(`Server started on port: ${port}`));
+app.listen(port, console.log(`Server started on port: ${port}!`));

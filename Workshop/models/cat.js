@@ -14,8 +14,9 @@ const CatSchema = new Schema({
         required: true
     },
     breed: {
-        type: String,
-        required: true
+        required: true,
+        type: 'ObjectId',
+        ref: 'Breed'
     }
 });
 

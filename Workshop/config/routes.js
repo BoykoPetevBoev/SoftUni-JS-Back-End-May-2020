@@ -1,4 +1,4 @@
-const { saveCat, getAllCats, loadEditPage, loadHomePage, loadCatShelterPage } = require("../controllers/cats");
+const { saveCat, getAllCats, loadEditPage, loadHomePage, loadCatShelterPage, updateCat, deleteCat } = require("../controllers/cats");
 const { addBreed, getAllBreeds } = require('../controllers/breeds');
 
 module.exports = (app) => {
@@ -12,9 +12,11 @@ module.exports = (app) => {
             breeds: req.breeds
         });
     });
-    app.post('/addCat', saveCat)
-    app.get('/edit/:id', getAllBreeds, loadEditPage)
-    app.get('/newHome/:id', loadCatShelterPage)
+    app.post('/addCat', saveCat);
+    app.get('/edit/:id', getAllBreeds, loadEditPage);
+    app.post('/edit/:id', updateCat);
+    app.get('/newHome/:id', loadCatShelterPage);
+    app.post('/newHome/:id', deleteCat)
     app.get('*', (req, res) => {
         res.render('404');
     });

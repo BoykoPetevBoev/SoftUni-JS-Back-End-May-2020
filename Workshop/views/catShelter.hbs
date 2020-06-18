@@ -1,4 +1,4 @@
-<form action="#" class="cat-form">
+<form action="/newHome/{{_id}}" method="POST" class="cat-form">
     <h2>Shelter the cat</h2>
     <img src="{{image}}" alt="">
     <label for="name">Name</label>
@@ -17,5 +17,5 @@
         <option value="Unknown">Unknown</option>
         {{/if}}
     </select>
-    <button>SHELTER THE CAT</button>
+    <button type="submit">SHELTER THE CAT</button>
 </form>

@@ -1,8 +1,9 @@
 const Cat = require('../models/cat');
-const {getBreed} = require('./breeds');
+const { getBreed } = require('./breeds');
 
 async function getAllCats(req, res, next) {
-    req.cats = await Cat.find().lean();
+    req.cats = await Cat.find().populate('breed').lean();
+    console.log(req.cats)
     next();
 }
 async function getCat(id) {
@@ -16,25 +17,27 @@ async function saveCat(req, res) {
         description,
         image,
         breed
-    })
+    });
     await cat.save();
-    console.log('New cat saved successfuly')
-    return res.redirect('/')
+    console.log('New cat saved successfuly!');
+    return res.redirect('/');
 }
-function loadHomePage(req, res) {
+async function loadHomePage(req, res) {
+    const cats = req.cats;
     return res.render('home', {
-        cats: req.cats
+        cats
     });
 }
 async function loadEditPage(req, res) {
     const id = req.params.id
     const cat = await getCat(id);
+    const breeds = req.breeds;
     res.render('editCat', {
-        breeds: req.breeds,
+        breeds,
         ...cat
     });
 }
-async function loadCatShelterPage(req, res){
+async function loadCatShelterPage(req, res) {
     const id = req.params.id;
     const cat = await getCat(id);
     const breed = await getBreed(cat.breed);
@@ -43,6 +46,24 @@ async function loadCatShelterPage(req, res){
         breed
     })
 }
+async function updateCat(req, res) {
+    const _id = req.params.id;
+    const { name, description, image, breed } = req.body;
+    await Cat.findOneAndUpdate({ _id }, {
+        name,
+        description,
+        image,
+        breed
+    });
+    console.log('Cat updated successfuly!')
+    return res.redirect('/');
+}
+async function deleteCat(req, res) {
+    const _id = req.params.id;
+    await Cat.findOneAndDelete({ _id });
+    console.log('Cat deleted successfuly!')
+    res.redirect('/')
+}
 
 module.exports = {
     getAllCats,
@@ -50,5 +71,7 @@ module.exports = {
     saveCat,
     loadHomePage,
     loadEditPage,
-    loadCatShelterPage
+    loadCatShelterPage,
+    updateCat,
+    deleteCat
 }
