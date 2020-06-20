@@ -108,6 +108,8 @@
 | ---------- | --- |
 | Conventional Commits | <a href="https://www.conventionalcommits.org/en/v1.0.0/#summary">https://www.conventionalcommits.org</a> |
 | Express    | <a href="https://expressjs.com/">https://expressjs.com</a> |
+| Mongodb    | <a href="https://www.mongodb.com/">https://www.mongodb.com/</a> |
+| Mongoose   | <a href="https://mongoosejs.com/docs/">https://mongoosejs.com</a> |
 | npm        | <a href="https://www.npmjs.com/">https://www.npmjs.com</a> |
 | SoftUni    | <a href="https://softuni.bg">https://softuni.bg</a>  |
 | Handlebars | <a href="https://handlebarsjs.com">https://handlebarsjs.com</a>  |
