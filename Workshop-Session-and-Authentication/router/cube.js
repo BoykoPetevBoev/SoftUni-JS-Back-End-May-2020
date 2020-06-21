@@ -80,13 +80,19 @@ async function attachAccessory(req, res) {
     await updateCubeAccessories(cubeId, accessoryId);
     return res.redirect(`/details/${cubeId}`);
 }
-function loadEditPage(req, res){
+async function loadEditPage(req, res){
+    const id = req.params.id;
+    const cube = await getCube(id);
     res.render('editCubePage', {
+        ...cube,
         isLoggedIn: req.isLoggedIn
     });
 }
-function loadDeletePage(req, res){
+async function loadDeletePage(req, res){
+    const id = req.params.id;
+    const cube = await getCube(id);
     res.render('deleteCubePage', {
+        ...cube,
         isLoggedIn: req.isLoggedIn
     });
 }
@@ -101,6 +107,17 @@ async function loadDetailsPage(req, res){
 function loadErrorPage(req, res){
     return res.render('404');
 }
+async function deleteCube(req, res){
+    const id = req.params.id;
+    await Cube.deleteOne({ _id: id});
+    return res.redirect('/');
+}
+async function editCube(req, res){
+    const id = req.params.id;  
+    const cube = req.body; 
+    await Cube.findOneAndUpdate({ _id: id}, cube);
+    return res.redirect('/');
+}
 
 module.exports = {
     loadHomePage,
@@ -114,5 +131,7 @@ module.exports = {
     loadEditPage,
     loadDeletePage,
     loadDetailsPage,
-    loadErrorPage
+    loadErrorPage,
+    deleteCube,
+    editCube
 }
