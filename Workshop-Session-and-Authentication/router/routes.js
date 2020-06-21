@@ -7,7 +7,8 @@ const {
     getUserStatus,
     loadLoginPage,
     loadRegisterPage,
-    logoutUser
+    logoutUser,
+    inputStatus
 } = require('../controllers/users');
 const {
     loadHomePage,
@@ -41,7 +42,7 @@ module.exports = (app) => {
     app.get('/login', userAuthorization, getUserStatus, loadLoginPage);
     app.post('/login', verifyUser);
     app.get('/register', userAuthorization, getUserStatus, loadRegisterPage);
-    app.post('/register', addUser);
+    app.post('/register', inputStatus, addUser);
     app.get('/logout', guestAuthorization, getUserStatus, logoutUser);
 
     app.get('*', loadErrorPage);

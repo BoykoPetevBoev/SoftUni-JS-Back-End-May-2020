@@ -55,7 +55,7 @@ function guestAuthorization(req, res, next) {
 function userAuthorization(req, res, next) {
     const token = req.cookies.token;
     try {
-        const user = jwt.verify(token, privateKey);
+        jwt.verify(token, privateKey);
         return res.redirect('/');
     }
     catch {
@@ -68,7 +68,7 @@ function getUserStatus(req, res, next) {
         req.isLoggedIn = false;
     }
     try {
-        const user = jwt.verify(token, privateKey);
+        jwt.verify(token, privateKey);
         req.isLoggedIn = true;
     }
     catch {
@@ -78,7 +78,7 @@ function getUserStatus(req, res, next) {
 }
 function loadLoginPage(req, res) {
     const error = req.query.error
-        ? 'Invalid params'
+        ? 'Invalid params!'
         : null;
     return res.render('loginpage', {
         isLoggedIn: req.isLoggedIn,
@@ -87,7 +87,7 @@ function loadLoginPage(req, res) {
 }
 function loadRegisterPage(req, res) {
     const error = req.query.error
-        ? 'Invalid params'
+        ? req.query.error
         : null;
     return res.render('registerPage', {
         isLoggedIn: req.isLoggedIn,
@@ -98,6 +98,22 @@ function logoutUser(req, res) {
     res.clearCookie('token');
     return res.redirect('/');
 }
+function inputStatus(req, res, next){
+    const { username, password, repeatPassword } = req.body;
+    if(username.length < 5){
+        return res.redirect('/register?error=Username must be at least 5 characters long!');
+    }
+    if(!username.match(/^[A-Za-z0-9]+$/gm)){
+        return res.redirect('/register?error=Username must contain letters and numbers only!')
+    }
+    if(password === ''){
+        return res.redirect('/register?error=Password can not be empty!');
+    }
+    if(password !== repeatPassword){
+        return res.redirect('/register?error=Password and Re-Password must be the same!');
+    }
+    next();
+}
 
 module.exports = {
     loadLoginPage,
@@ -107,5 +123,6 @@ module.exports = {
     verifyUser,
     guestAuthorization,
     userAuthorization,
-    getUserStatus
+    getUserStatus,
+    inputStatus
 }

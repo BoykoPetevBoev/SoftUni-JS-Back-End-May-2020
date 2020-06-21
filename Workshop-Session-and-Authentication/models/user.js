@@ -6,7 +6,7 @@ const UserSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        match: [/^[A-Za-z0-9]+$/gm, 'Username is not valid'],
+        match: /^[A-Za-z0-9]+$/gm,
         minlength: 5
     },
     password: {
