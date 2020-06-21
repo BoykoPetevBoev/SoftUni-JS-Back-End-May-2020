@@ -22,7 +22,9 @@ const {
     loadAttachAccessoryPage,
     createCube,
     createAccessory,
-    attachAccessory
+    attachAccessory,
+    deleteCube,
+    editCube
 } = require('./cube');
 
 module.exports = (app) => {
@@ -36,8 +38,11 @@ module.exports = (app) => {
     app.get('/attach/accessory/:id', getUserStatus, guestAuthorization, loadAttachAccessoryPage);
     app.post('/attach/accessory/:id', attachAccessory);
     app.get('/search', getUserStatus, searchHandler);
-    app.get('/edit', guestAuthorization, getUserStatus, loadEditPage);
-    app.get('/delete', guestAuthorization, getUserStatus, loadDeletePage);
+
+    app.get('/edit/:id', guestAuthorization, getUserStatus, loadEditPage);
+    app.post('/edit/:id', editCube);
+    app.get('/delete/:id', guestAuthorization, getUserStatus, loadDeletePage);
+    app.post('/delete/:id', deleteCube);
 
     app.get('/login', userAuthorization, getUserStatus, loadLoginPage);
     app.post('/login', verifyUser);
