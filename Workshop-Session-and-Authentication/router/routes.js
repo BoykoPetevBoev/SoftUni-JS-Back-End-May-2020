@@ -25,7 +25,7 @@ const {
     attachAccessory,
     deleteCube,
     editCube
-} = require('./cube');
+} = require('./controllers/cubes');
 
 module.exports = (app) => {
     app.get('/', getUserStatus, loadHomePage);
