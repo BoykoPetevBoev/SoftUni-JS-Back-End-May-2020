@@ -15,14 +15,17 @@ function loadRegisterPage(req, res, next) {
 async function userLogin(req, res, next) {
     const { email, password } = req.body;
     if (!email || !password) {
+        console.log('Invalid params');
         return;
     }
     const user = await User.findOne({ email }).lean();
     if (!user) {
+        console.log('Invalid params');
         return;
     }
     const match = await hashHandler.checkPassword(password, user.password);
     if (!match) {
+        console.log('Invalid params');
         return;
     }
     const token = authHandler.generateToken(user._id, user.email);
@@ -33,6 +36,7 @@ async function userLogin(req, res, next) {
 async function userRegister(req, res, next) {
     const { email, password, rePassword } = req.body;
     if (!email || !password || rePassword || password !== rePassword) {
+        console.log('Invalid params');
         return;
     }
     const hashPassword = hashHandler.hashPassword(password);

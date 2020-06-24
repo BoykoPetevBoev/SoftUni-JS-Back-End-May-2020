@@ -30,10 +30,10 @@ const TrippSchema = new Schema({
         type: String,
         required: true
     },
-    buddies: {
-        type: 'ObjectID',
-        ref: 'User'
-    }
+    buddies: [{
+            type: 'ObjectID',
+            ref: 'User'
+        }]
 });
 
 module.exports = mongoose.model('Tripp', TrippSchema);
