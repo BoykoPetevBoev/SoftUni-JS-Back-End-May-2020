@@ -17,7 +17,8 @@ function userAutorization(req, res, next) {
         return res.redirect('/');
     }
     try {
-        jwt.verify(token, privateKey);
+        const info =  jwt.verify(token, privateKey);
+        res.email = info.email;
         next();
     }
     catch{
