@@ -1,9 +1,15 @@
-const  privateUserData = require('../private');
+const env = process.env.NODE_ENV || 'development';
 
-module.exports = {
+const config = {
     development: {
         port: process.env.PORT || 3000,
-        databaseUrl: `mongodb+srv://${privateUserData.user}:${privateUserData.password}@softuni-dx3ut.mongodb.net/${privateUserData.database}?retryWrites=true&w=majority`
+        dbUser: 'user',
+        dbPassword: 123,
+        dbName: 'SharedTripp',
+        dbAddress: 'softuni-dx3ut.mongodb.net',
+        tokenKey: 'SuperSecretKey'
     },
     production: {}
-};
+}
+
+module.exports = config[env];
