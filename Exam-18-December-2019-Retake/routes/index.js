@@ -18,15 +18,20 @@ module.exports = (app) => {
         utils.userAutorization,
         utils.userStatus,
         tripp.loadTrippDetails
-    )
-    app.post('/offer-tripps',
-        tripp.offerTrippHandler
     );
     app.get('/offer-tripps',
         utils.userAutorization,
         utils.userStatus,
         tripp.loadOfferTripPage
     );
+    app.post('/offer-tripps',
+        utils.userStatus,
+        tripp.offerTrippHandler
+    );
+    app.get('/join-tripp/:id',
+        utils.userAutorization,
+        utils.userStatus,
+        tripp.joinTripp)
     app.post('/login',
         user.userLogin
     );

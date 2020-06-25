@@ -7,7 +7,7 @@ module.exports = (app) => {
         extname: '.hbs'
     }));
     app.set('view engine', '.hbs');
-    app.use('/static', express.static('static'));
+    app.use(express.static('static'));
     app.use(express.json());
     app.use(cookieParser());
     app.use(express.urlencoded());
