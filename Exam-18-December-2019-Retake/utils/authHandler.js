@@ -18,7 +18,7 @@ function userAutorization(req, res, next) {
     }
     try {
         const info =  jwt.verify(token, privateKey);
-        res.email = info.email;
+        res.user = info;
         next();
     }
     catch{
@@ -41,7 +41,8 @@ function userStatus(req, res, next) {
         res.isLoggedIn = false;
     }
     try {
-        jwt.verify(token, privateKey);
+        const info = jwt.verify(token, privateKey);
+        res.user = info;
         res.isLoggedIn = true;
     }
     catch{
