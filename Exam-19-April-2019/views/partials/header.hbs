@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">Video Tutorials</a>
+
+    <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item">
+            <a class="nav-link" href="/">Home </a>
+        </li>
+
+        {{#if isLoggedIn}}
+
+        <li class="nav-link">
+            Welcome, {{username}}
+        </li>
+
+        <li class="nav-item">
+            <form id="logout-form" action="/logout" method="POST"></form>
+            <a class="nav-link" href="javascript:document.getElementById('logout-form').submit()">Logout</a>
+        </li>
+
+        {{else}}
+
+        <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
+        </li>
+
+        {{/if}}
+
+    </ul>
+</nav>
