@@ -15,3 +15,11 @@
 .badge{
     margin-left:10px;
 }
+.leftInfo {
+    float: left;
+    width: 400px;
+}
+.rightInfo{
+    float: right;
+    width: 400px;
+}

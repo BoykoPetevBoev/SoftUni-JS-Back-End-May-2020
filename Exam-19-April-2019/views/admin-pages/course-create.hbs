@@ -1,0 +1,22 @@
+<main>
+    <form method="POST" action="/create-course" class="text-center border border-light p-5">
+        <h1>Create Course</h1>
+        <div class="form-group">
+            <label for="title">Course Title</label>
+            <input name="title" type="text" class="form-control" placeholder="Course name">
+        </div>
+        <div class="form-group">
+            <label for="description">Course Description</label>
+            <textarea name="description" class="form-control" placeholder="Description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="imageUrl">Image url</label>
+            <input name="imageUrl" type="text" class="form-control" placeholder="Image Url">
+        </div>
+        <div class="form-check">
+            <input name="courseStatus" type="checkbox" class="form-check-input" id="check-box">
+            <label class="form-check-label" for="check-box">Public</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</main>
