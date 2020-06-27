@@ -11,32 +11,45 @@ function loadRegisterPage(req, res) {
 async function loginHandler(req, res) {
     const { username, password } = req.body;
     if (!username || !password) {
-        console.log('Login: Invalid Username or Password!');
-        return;
+        return invalidData();
     }
     const user = await User.findOne({ username }).lean();
     if(!user){
-        console.log('Login: Invalid Username or Password!');
-        return;
+        return invalidData();
     }
     const passwordStatus = await hashHandler.checkPassword(password, user.password);
     if(!passwordStatus){
-        console.log('Login: Invalid Username or Password!');
-        return;
+        return invalidData();
     }
     res = authHandler.setCookie(res, user);
     res.redirect('/');
+
+    function invalidData(){
+        return res.render('guest-pages/login.hbs', {
+            errMessage: 'Invalid Username or Password!',
+            username,
+            password
+        });
+    }
 }
 async function registerHandler(req, res) {
     const { username, password, rePassword } = req.body;
 
-    if (!username || !password || !rePassword) {
-        console.log('Register: Invalid Params!');
-        return;
+    if (!username) {
+        return invalidData('Username can not be empty!');
     }
-    if (password !== rePassword) {
-        console.log('Register: Password and Repeat Password must be equal!');
-        return;
+    else if(!password){
+        return invalidData('Password can not be empty!');
+    }
+    else if(!rePassword){
+        return invalidData('Repeat Password can not be empty!');
+    }
+    else if (password !== rePassword) {
+        return invalidData('Password and Repeat Password must match!');
+    }
+    const checkUsername = await User.findOne({username})
+    if(checkUsername){
+        return invalidData(`This username is already in use! You can try with ${username}123`);
     }
     const hashedPassword = hashHandler.hashPassword(password);
     const user = new User({ username, password: hashedPassword });
@@ -46,6 +59,15 @@ async function registerHandler(req, res) {
         res = authHandler.setCookie(res, user);
     }
     res.redirect('/');
+
+    function invalidData(errMessage){
+        return res.render('guest-pages/register.hbs', {
+            errMessage,
+            username,
+            password,
+            rePassword
+        });
+    }
 }
 function logoutHandler(req, res){
     res.clearCookie('token');
