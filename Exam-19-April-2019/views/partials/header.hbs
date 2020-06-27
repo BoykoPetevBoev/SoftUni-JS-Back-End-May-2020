@@ -8,14 +8,11 @@
         </li>
 
         {{#if isLoggedIn}}
-
-        <li class="nav-link">
-            Welcome, {{username}}
-        </li>
-
         <li class="nav-item">
-            <form id="logout-form" action="/logout" method="POST"></form>
-            <a class="nav-link" href="javascript:document.getElementById('logout-form').submit()">Logout</a>
+            <a class="nav-link" href="/">Welcome, {{username}}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
         </li>
 
         {{else}}

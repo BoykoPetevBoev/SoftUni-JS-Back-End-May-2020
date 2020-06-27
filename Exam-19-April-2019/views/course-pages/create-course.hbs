@@ -1,20 +1,20 @@
 <main>
-    <form method="POST" action="/create-course" class="text-center border border-light p-5">
+    <form class="text-center border border-light p-5" action="/course/create" method="POST">
         <h1>Create Course</h1>
         <div class="form-group">
             <label for="title">Course Title</label>
-            <input name="title" type="text" class="form-control" placeholder="Course name">
+            <input type="text" class="form-control" placeholder="Course name" name="title" value={{title}}>
         </div>
         <div class="form-group">
             <label for="description">Course Description</label>
-            <textarea name="description" class="form-control" placeholder="Description"></textarea>
+            <textarea class="form-control" placeholder="Description" name="description">{{description}}</textarea>
         </div>
         <div class="form-group">
             <label for="imageUrl">Image url</label>
-            <input name="imageUrl" type="text" class="form-control" placeholder="Image Url">
+            <input type="text" class="form-control" placeholder="Image Url" name="imageUrl" value={{imageUrl}}>
         </div>
         <div class="form-check">
-            <input name="courseStatus" type="checkbox" class="form-check-input" id="check-box">
+            <input type="checkbox" class="form-check-input" id="check-box" name="courseStatus">
             <label class="form-check-label" for="check-box">Public</label>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

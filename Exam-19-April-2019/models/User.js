@@ -12,7 +12,7 @@ const UserSchema = new Schema({
         required: true
     },
     enrolledCourses: [{
-        type: 'ObjectID',
+        type: Schema.Types.ObjectId,
         ref: 'Course'
     }]
 })

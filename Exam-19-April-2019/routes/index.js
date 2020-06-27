@@ -7,12 +7,13 @@ module.exports = (app) => {
         authHandler.userStatus,
         course.loadHomePage
     );
-    app.get('/create-course',
+    app.get('/course/create',
         authHandler.userAutorization,
         authHandler.userStatus,
         course.loadCreateCoursePage
     );
-    app.post('/create-course',
+    app.post('/course/create',
+        authHandler.userAutorization,
         authHandler.userStatus,
         course.createCourseHandler
     )
@@ -32,12 +33,16 @@ module.exports = (app) => {
         user.loadRegisterPage
     );
     app.post('/login',
+        authHandler.guestAutorization,
+        authHandler.userStatus,
         user.loginHandler
     );
     app.post('/register',
+        authHandler.guestAutorization,
+        authHandler.userStatus,
         user.registerHandler
     );
-    app.post('/logout',
+    app.get('/logout',
         user.logoutHandler
     )
 }
