@@ -7,6 +7,11 @@ module.exports = (app) => {
         authHandler.userStatus,
         course.loadHomePage
     );
+    app.get('/search',
+        authHandler.userAutorization,
+        authHandler.userStatus,
+        course.serachHandler
+    )
     app.get('/course/create',
         authHandler.userAutorization,
         authHandler.userStatus,

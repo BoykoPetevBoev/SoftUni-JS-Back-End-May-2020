@@ -4,16 +4,22 @@ const User = require('../models/User');
 async function loadHomePage(req, res) {
     const isLoggedIn = req.isLoggedIn;
     const courses = await Course.find().lean();
+    let publicCourses = courses.filter((course) => course.isPublic === true);
     if (isLoggedIn) {
+        publicCourses.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
         return res.render('home-pages/user-home.hbs', {
             isLoggedIn,
             ...req.user,
-            courses
+            courses: publicCourses
         })
     }
+    publicCourses.sort((a, b) => {
+        return (a.usersEnrolled.length < b.usersEnrolled.length) ? 1 : -1
+    });
+    const topThree = publicCourses.slice(0, 3);
     res.render('home-pages/guest-home.hbs', {
         isLoggedIn,
-        courses
+        courses: topThree
     })
 }
 function loadCreateCoursePage(req, res) {
@@ -154,6 +160,17 @@ async function editCourse(req, res) {
     }
 
 }
+async function serachHandler(req, res) {
+    const isLoggedIn = req.isLoggedIn;
+    const search = req.query.search
+    const courses = await Course.find().lean();
+    const filtered = courses.filter(course => course.title.toLowerCase().includes(search.toLowerCase()));
+    return res.render('home-pages/user-home.hbs', {
+        isLoggedIn,
+        ...req.user,
+        courses: filtered
+    })
+}
 
 module.exports = {
     loadHomePage,
@@ -163,5 +180,6 @@ module.exports = {
     enrollUser,
     deleteCourse,
     loadEditPage,
-    editCourse
+    editCourse,
+    serachHandler
 }
