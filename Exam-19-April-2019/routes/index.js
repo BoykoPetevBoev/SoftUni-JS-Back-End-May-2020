@@ -22,6 +22,26 @@ module.exports = (app) => {
         authHandler.userStatus,
         course.loadCourseDetails
     )
+    app.get('/course/enroll/:id',
+        authHandler.userAutorization,
+        authHandler.userStatus,
+        course.enrollUser
+    )
+    app.get('/course/delete/:id',
+        authHandler.userAutorization,
+        authHandler.userStatus,
+        course.deleteCourse
+    )
+    app.get('/edit/:id',
+        authHandler.userAutorization,
+        authHandler.userStatus,
+        course.loadEditPage
+    )
+    app.post('/edit/:id',
+        authHandler.userAutorization,
+        authHandler.userStatus,
+        course.editCourse
+    )
     app.get('/login',
         authHandler.guestAutorization,
         authHandler.userStatus,
