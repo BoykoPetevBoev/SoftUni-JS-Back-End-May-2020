@@ -47,6 +47,9 @@ module.exports = (app) => {
         authHandler.userStatus,
         course.editCourse
     )
+
+
+    
     app.get('/login',
         authHandler.guestAutorization,
         authHandler.userStatus,

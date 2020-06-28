@@ -51,9 +51,5 @@ module.exports = (app) => {
     app.get('/logout',
         user.userLogout
     );
-    app.get('*',
-        utils.userStatus,
-        (req, res, next) => {
-            res.render('404');
-        })
+    loadSharedTrippsPage
 }
