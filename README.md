@@ -2,7 +2,7 @@
 
 ![JS-Back-End-May-2020](https://github.com/BoykoPetevBoev/JS-Back-End-May-2020/blob/master/README/JSBack-End.jpg)
 
-<img src="https://github.com/BoykoPetevBoev/JS-Back-End-May-2020/blob/master/README/JS%20Back-End%20-%20May%202020%20-%20Certificate.jpeg" height="390" width="1132">
+<img src="https://github.com/BoykoPetevBoev/JS-Back-End-May-2020/blob/master/README/JS%20Back-End%20-%20May%202020%20-%20Certificate.jpeg" height="1132" width="390">
 
 
 ## За курса
