@@ -1,9 +1,8 @@
+![JS-Back-End-May-2020](https://github.com/BoykoPetevBoev/JS-Back-End-May-2020/blob/master/_README/JSBack-End.jpg)
 
+![JS-Back-End-May-2020](https://github.com/BoykoPetevBoev/JS-Back-End-May-2020/blob/master/_README/JS-Back-End-Certificate.png)
 
-![JS-Back-End-May-2020](https://github.com/BoykoPetevBoev/JS-Back-End-May-2020/blob/master/README/JSBack-End.jpg)
-
-<img src="https://github.com/BoykoPetevBoev/JS-Back-End-May-2020/blob/master/README/JS%20Back-End%20-%20May%202020%20-%20Certificate.jpeg" height="1132" width="390">
-
+---
 
 ## За курса
 
@@ -58,7 +57,6 @@
     * Different types of errors
  
 
----
 ## Terminal Cheat Sheet
 
 | Commands | Notes |
